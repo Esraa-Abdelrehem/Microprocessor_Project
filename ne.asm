@@ -2,7 +2,7 @@
 .model small
 .stack 4096
 .data
-
+;
 Mario db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54               ; Mario Array
 db 54,54,54,54,54,54,54,6h,6h,6h,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54,54
 db 54,54,54,54,54,54,6h,114,6h,114,42,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54
@@ -94,37 +94,24 @@ db  0,114,114,114,114, 0,114,114,114,114,114,114,114,114
 db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0
 db  0,114,114,114,114,114,114,114,114, 0,114,114,114,114
 
-;*SCREEN MODE*
-_welcome byte "WELCOME TO SUPER MARIA"
-_enter byte "ENTER YOUR NAME UPTO 8 LETTERS"
-_name byte 8 DUP('$')
-_over byte "GAME OVER"
-_again byte "Press ESC to Start Again"
-_quit byte "Press ENTER to Quit"
-_level byte "Level:"
-_score byte "Score:"
-_cursor byte 9
-
-;*MARIO*
+;MARIO
 Dx_Mario word 20
 Dy_Mario word 163
-;*MONSTER*
+;---------MONSTER--------
 Dx_Monster word 116
 Dy_Monster word 177
 
 Dx2_Monster word 190
 Dy2_Monster word 177
-;*BACKGROUND*
-dx_back word  0
-dy_back word 20
-;*HEART*
+
+;---------HEART----------
 dx_heart word    100
 dy_heart word    130
-;*COIN*
+;-----------COIN-----------
 dx_coin word 50
 dy_coin word 50
 .code
-;***MAIN***
+;---MAIN---
 Main proc
    mov ax,@data
    mov ds,ax
@@ -140,13 +127,8 @@ Level_1 proc                                   ;level1
     mov Dx_Mario ,20
     mov Dy_Mario ,163
 	call DrawMario
-	
 	call Screen
-	infinite:
-	    call DrawMario
-  
-		call Screen
-		
+	call Level_2 
 ret
 Level_1 endp
 	
@@ -181,10 +163,10 @@ ret
 DrawMario endp
 StartScreen proc                                ;start screen
 	
-   ; Call DrawFlag2
-    ;Call CallHurdles
-    ;call DrawMario2
-    ;call drawsurface
+    Call DrawFlag2
+    Call CallHurdles
+    call DrawMario2
+    call drawsurface
     
 	mov ah,02h  ;set cursor
 	mov dh,8
@@ -259,9 +241,9 @@ StartScreen proc                                ;start screen
 
 	    pop cx
 	LOOP LoopName
-;	call DrawFlag
-	;call CallHurdles
-	;call DrawSurface
+	call DrawFlag
+	call CallHurdles
+	call DrawSurface
 	call DrawMario2
 ret 
 StartScreen endp
@@ -272,35 +254,6 @@ ClearScreen proc                                ;clear screen
     int 10h
 ret
 ClearScreen endp
-
-DrawMonster proc                                ; draw monster
-	mov cx,18
-	push Dx_Monster
-	push Dy_Monster
-	mov si,offset Monster
-	Loop1:
-	     push cx
-	     push Dx_Monster
-	     mov cx,18
-	     Loop2:
-	         push cx
-	         mov ah,0Ch
-			 mov al,byte ptr [si]
-			 mov cx,Dx_Monster
-			 mov dx,Dy_Monster
-	         int 10h
-			 inc Dx_Monster
-			 pop cx
-			 add si ,TYPE Monster
-	     LOOP Loop2
-	     inc Dy_Monster
-	     pop Dx_Monster
-	     pop cx
-	LOOP Loop1
-	     pop Dy_Monster
-	     pop Dx_Monster
-ret
-DrawMonster endp
 
 
 DrawHeart proc                                  ;draw heart
@@ -332,164 +285,4 @@ DrawHeart proc                                  ;draw heart
 		pop dx_heart
 ret
 DrawHeart endp
-Screen proc                                      ;draw screen
-	mov _cursor,1
-	mov ah,02h  ;set cursor
-	mov dh,1
-	mov dl,_cursor
-	int 10h
-	mov cx,6
-	mov si,offset _level
-
-	LoopLevel:
-	    push cx
-	    mov al,[si]
-	    mov bh,0
-	    mov bl,15
-	    mov cx,1
-	    mov ah,0Ah
-	    int 10h
-	    add si, TYPE _level
-	    inc _cursor
-	    mov ah,02h
-	    mov dh,1
-	    mov dl,_cursor
-	    int 10h
-
-	    pop cx
-	LOOP LoopLevel
-
-
-	
-    
-    Add _cursor,9
-	mov cx,8
-	mov ah,02h  ;set cursor
-	mov dh,1
-	mov dl,_cursor
-	int 10h
-
-	mov si,offset _name
-	LoopName:
-	    push cx
-	    mov al,[si]
-	    mov bh,0
-	    mov bl,15
-	    mov cx,1
-	    mov ah,0Ah
-	    int 10h
-	    add si, TYPE _name
-	    add _cursor,1
-	    mov ah,02h
-	    mov dh,1
-	    mov dl,_cursor
-	    int 10h
-
-	  
-	    pop cx
-	LOOP LoopName 
-
-	add _cursor,8
-	mov ah,02h            ;set cursor
-	mov dh,1
-	mov dl,_cursor
-	int 10h
-	mov cx,6
-	mov si,offset _score
-
-	LoopScore:              ;loop for printing _score "Score:"
-	    push cx
-	    mov al,[si]
-	    mov bh,0
-	    mov bl,15
-	    mov cx,1
-	    mov ah,0Ah
-	    int 10h
-	    add si, TYPE _score
-	    inc _cursor
-	    mov ah,02h
-	    mov dh,1
-	    mov dl,_cursor
-	    int 10h
-
-	    pop cx
-	LOOP LoopScore
-
-	
-
-   
-
-ret
-Screen endp
-DrawMario2 proc                        			; draw mario
-	push Dx_Mario
-	push Dy_Mario
-	mov cx,33
-	mov si,offset Mario
-	Loop1:
-
-	     push cx
-	     push Dx_Mario
-	     mov cx,23
-	     Loop2:
-	        mov bl,[si]
-	        .if bl==54
-		         push cx
-		         mov ah,0Ch
-				 mov al,00
-				 mov cx,Dx_Mario
-				 mov dx,Dy_Mario
-		         int 10h
-				 inc Dx_Mario
-				 pop cx
-				 add si ,TYPE Mario
-			 .else
-				 push cx
-		         mov ah,0Ch
-				 mov al,[si]
-				 mov cx,Dx_Mario
-				 mov dx,Dy_Mario
-		         int 10h
-				 inc Dx_Mario
-				 pop cx
-				 add si ,TYPE Mario
-			 .endif
-	     LOOP Loop2
-	     inc Dy_Mario
-	     pop Dx_Mario
-	     pop cx
-	LOOP Loop1
-	     pop Dy_MArio
-	     pop Dx_mario
-ret
-DrawMario2 endp
-DrawBackground proc
-    mov dx_back,0
-	mov dy_back,20
-	push dx_back
-	push dy_back
-		mov cx,180
-		Loop2:
-			 push cx
-			 push dx_back
-			 mov cx,320
-			 Loop3:
-				 push cx
-				 mov ah,0Ch
-				 mov al,54
-				 mov cx,dx_back
-				 mov dx,dy_back
-				 int 10h
-				 inc dx_back
-				 pop cx
-			 LOOP Loop3
-			 inc dy_back
-			 pop dx_back
-			 pop cx
-		LOOP Loop2
-
-	pop dy_back
-	pop dx_back	
-ret
-DrawBackground endp
 End Main

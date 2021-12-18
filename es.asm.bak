@@ -2,7 +2,7 @@
 .model small
 .stack 4096
 .data
-
+;
 Mario db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54               ; Mario Array
 db 54,54,54,54,54,54,54,6h,6h,6h,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54,54
 db 54,54,54,54,54,54,6h,114,6h,114,42,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54
@@ -94,7 +94,7 @@ db  0,114,114,114,114, 0,114,114,114,114,114,114,114,114
 db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0
 db  0,114,114,114,114,114,114,114,114, 0,114,114,114,114
 
-;*SCREEN MODE*
+;-------SCREEN MODE-------------
 _welcome byte "WELCOME TO SUPER MARIA"
 _enter byte "ENTER YOUR NAME UPTO 8 LETTERS"
 _name byte 8 DUP('$')
@@ -105,26 +105,24 @@ _level byte "Level:"
 _score byte "Score:"
 _cursor byte 9
 
-;*MARIO*
+;MARIO
 Dx_Mario word 20
 Dy_Mario word 163
-;*MONSTER*
+;---------MONSTER--------
 Dx_Monster word 116
 Dy_Monster word 177
 
 Dx2_Monster word 190
 Dy2_Monster word 177
-;*BACKGROUND*
-dx_back word  0
-dy_back word 20
-;*HEART*
+
+;---------HEART----------
 dx_heart word    100
 dy_heart word    130
-;*COIN*
+;-----------COIN-----------
 dx_coin word 50
 dy_coin word 50
 .code
-;***MAIN***
+;---MAIN---
 Main proc
    mov ax,@data
    mov ds,ax
@@ -463,33 +461,4 @@ DrawMario2 proc                        			; draw mario
 	     pop Dx_mario
 ret
 DrawMario2 endp
-DrawBackground proc
-    mov dx_back,0
-	mov dy_back,20
-	push dx_back
-	push dy_back
-		mov cx,180
-		Loop2:
-			 push cx
-			 push dx_back
-			 mov cx,320
-			 Loop3:
-				 push cx
-				 mov ah,0Ch
-				 mov al,54
-				 mov cx,dx_back
-				 mov dx,dy_back
-				 int 10h
-				 inc dx_back
-				 pop cx
-			 LOOP Loop3
-			 inc dy_back
-			 pop dx_back
-			 pop cx
-		LOOP Loop2
-
-	pop dy_back
-	pop dx_back	
-ret
-DrawBackground endp
 End Main
