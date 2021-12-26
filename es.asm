@@ -123,6 +123,22 @@ dy_heart word    130
 ;*COIN*
 dx_coin word 50
 dy_coin word 50
+;**FLAGS AND SCORES**
+flyFlag byte 0
+downFlag byte 0
+gameScore byte 0
+gamelevel byte 1
+scoreflag byte 0
+scoreflag2 byte 0
+scoreflag3 byte 0
+ground word 0
+flycount word 0
+pikaflag word 0
+monflag word 0
+monflag2 word 0
+lives word 2
+touchmons word 0
+touchfire word 0
 .code
 ;***MAIN***
 Main proc
@@ -137,16 +153,108 @@ Main proc
 Main endp
 Level_1 proc                                   ;level1
    
+     mov scoreflag,0
+    mov scoreflag2,0
+    mov scoreflag3,0
+
+    mov flyFlag ,0
+	mov downFlag, 0
+	mov gameScore, 0
+	mov gamelevel, 1
+	mov scoreflag, 0
+	mov scoreflag2, 0
+	mov scoreflag3, 0
+	mov ground,s 0
+	mov flycount, 0
+	mov pikaflag, 0
+	mov monflag2,0
+	mov monflag, 0
+	mov lives, 2
+	mov touchmons, 0
+	mov touchfire, 0
+
+    call DrawBackground
+    Call DrawFlag
+    Call CallHurdles
     mov Dx_Mario ,20
     mov Dy_Mario ,163
-	call DrawMario
-	
-	call Screen
+    call DrawMario
+    call drawsurface
+    call Screen
 	infinite:
 	    call DrawMario
-  
+
+	    ;----------------MOVEMENT AND FLYING------------------------------------
 		call Screen
+		Call Keydetect
+		Call DrawFlag
+		Call CallHurdles
+		Call FlyUp
 		
+        .if Dx_Mario < 80 || Dx_Mario > 120 && Dx_Mario < 150 || Dx_Mario > 190 && Dx_Mario < 220 || Dx_Mario > 260
+		    Call FlyDown
+		.elseif Dy_Mario < 120
+		    Call FlyDown
+		    Call FlyUp
+		.endif
+		call drawsurface
+		;---------------------------------------------------------------------------
+
+       
+        ;-------------------HEART AND SCORE----------------------------------------
+		.if scoreflag==0
+			mov dx_coin,50
+			mov dy_coin,100
+			call DrawCoin
+		.endif
+		.if Dx_Mario>=30 && Dx_Mario <=64 && scoreFlag==0
+	       .if Dy_Mario>=100 && Dy_Mario<=116
+		        add gamescore,1
+		        mov scoreflag,1
+		        mov dx_coin,50
+			    mov dy_coin,100
+		        call DrawCoinBox
+	       .endif
+	    .endif
+        
+        .if scoreflag2==0
+			mov dx_coin,100
+			mov dy_coin,70
+			call DrawCoin
+		.endif
+	    .if Dx_Mario>=80 && Dx_Mario <=114 && scoreFlag2==0
+	       .if Dy_Mario>=70 && Dy_Mario<=86
+		        add gamescore,1
+		        mov scoreflag2,1
+		        mov dx_coin,100
+			    mov dy_coin,70
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    .if scoreflag3==0
+			mov dx_coin,170
+			mov dy_coin,120
+			call DrawCoin
+		.endif
+	    .if Dx_Mario>=147 && Dx_Mario <=187 && scoreFlag3==0
+	       .if Dy_Mario>=105 && Dy_Mario<=146
+		        add gamescore,1
+		        mov scoreflag3,1
+		        mov dx_coin,170
+			    mov dy_coin,120
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    ;---------------------------------------------------------------------
+
+		.if Dx_Mario==292
+		    jmp ex
+		.endif  
+		jmp infinite 
+	ex:
+	call Level_2 
 ret
 Level_1 endp
 	

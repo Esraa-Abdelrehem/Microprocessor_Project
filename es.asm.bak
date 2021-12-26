@@ -2,7 +2,7 @@
 .model small
 .stack 4096
 .data
-;
+
 Mario db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54               ; Mario Array
 db 54,54,54,54,54,54,54,6h,6h,6h,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54,54
 db 54,54,54,54,54,54,6h,114,6h,114,42,6h,6h,6h,6h,6h,6h,6h,54,54,54,54,54
@@ -94,7 +94,7 @@ db  0,114,114,114,114, 0,114,114,114,114,114,114,114,114
 db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0
 db  0,114,114,114,114,114,114,114,114, 0,114,114,114,114
 
-;-------SCREEN MODE-------------
+;*SCREEN MODE*
 _welcome byte "WELCOME TO SUPER MARIA"
 _enter byte "ENTER YOUR NAME UPTO 8 LETTERS"
 _name byte 8 DUP('$')
@@ -105,24 +105,26 @@ _level byte "Level:"
 _score byte "Score:"
 _cursor byte 9
 
-;MARIO
+;*MARIO*
 Dx_Mario word 20
 Dy_Mario word 163
-;---------MONSTER--------
+;*MONSTER*
 Dx_Monster word 116
 Dy_Monster word 177
 
 Dx2_Monster word 190
 Dy2_Monster word 177
-
-;---------HEART----------
+;*BACKGROUND*
+dx_back word  0
+dy_back word 20
+;*HEART*
 dx_heart word    100
 dy_heart word    130
-;-----------COIN-----------
+;*COIN*
 dx_coin word 50
 dy_coin word 50
 .code
-;---MAIN---
+;***MAIN***
 Main proc
    mov ax,@data
    mov ds,ax
@@ -135,16 +137,108 @@ Main proc
 Main endp
 Level_1 proc                                   ;level1
    
+     mov scoreflag,0
+    mov scoreflag2,0
+    mov scoreflag3,0
+
+    mov flyFlag ,0
+	mov downFlag, 0
+	mov gameScore, 0
+	mov gamelevel, 1
+	mov scoreflag, 0
+	mov scoreflag2, 0
+	mov scoreflag3, 0
+	mov ground,s 0
+	mov flycount, 0
+	mov pikaflag, 0
+	mov monflag2,0
+	mov monflag, 0
+	mov lives, 2
+	mov touchmons, 0
+	mov touchfire, 0
+
+    call DrawBackground
+    Call DrawFlag
+    Call CallHurdles
     mov Dx_Mario ,20
     mov Dy_Mario ,163
-	call DrawMario
-	
-	call Screen
+    call DrawMario
+    call drawsurface
+    call Screen
 	infinite:
 	    call DrawMario
-  
+
+	    ;----------------MOVEMENT AND FLYING------------------------------------
 		call Screen
+		Call Keydetect
+		Call DrawFlag
+		Call CallHurdles
+		Call FlyUp
 		
+        .if Dx_Mario < 80 || Dx_Mario > 120 && Dx_Mario < 150 || Dx_Mario > 190 && Dx_Mario < 220 || Dx_Mario > 260
+		    Call FlyDown
+		.elseif Dy_Mario < 120
+		    Call FlyDown
+		    Call FlyUp
+		.endif
+		call drawsurface
+		;---------------------------------------------------------------------------
+
+       
+        ;-------------------HEART AND SCORE----------------------------------------
+		.if scoreflag==0
+			mov dx_coin,50
+			mov dy_coin,100
+			call DrawCoin
+		.endif
+		.if Dx_Mario>=30 && Dx_Mario <=64 && scoreFlag==0
+	       .if Dy_Mario>=100 && Dy_Mario<=116
+		        add gamescore,1
+		        mov scoreflag,1
+		        mov dx_coin,50
+			    mov dy_coin,100
+		        call DrawCoinBox
+	       .endif
+	    .endif
+        
+        .if scoreflag2==0
+			mov dx_coin,100
+			mov dy_coin,70
+			call DrawCoin
+		.endif
+	    .if Dx_Mario>=80 && Dx_Mario <=114 && scoreFlag2==0
+	       .if Dy_Mario>=70 && Dy_Mario<=86
+		        add gamescore,1
+		        mov scoreflag2,1
+		        mov dx_coin,100
+			    mov dy_coin,70
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    .if scoreflag3==0
+			mov dx_coin,170
+			mov dy_coin,120
+			call DrawCoin
+		.endif
+	    .if Dx_Mario>=147 && Dx_Mario <=187 && scoreFlag3==0
+	       .if Dy_Mario>=105 && Dy_Mario<=146
+		        add gamescore,1
+		        mov scoreflag3,1
+		        mov dx_coin,170
+			    mov dy_coin,120
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    ;---------------------------------------------------------------------
+
+		.if Dx_Mario==292
+		    jmp ex
+		.endif  
+		jmp infinite 
+	ex:
+	call Level_2 
 ret
 Level_1 endp
 	
@@ -461,4 +555,33 @@ DrawMario2 proc                        			; draw mario
 	     pop Dx_mario
 ret
 DrawMario2 endp
+DrawBackground proc
+    mov dx_back,0
+	mov dy_back,20
+	push dx_back
+	push dy_back
+		mov cx,180
+		Loop2:
+			 push cx
+			 push dx_back
+			 mov cx,320
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,54
+				 mov cx,dx_back
+				 mov dx,dy_back
+				 int 10h
+				 inc dx_back
+				 pop cx
+			 LOOP Loop3
+			 inc dy_back
+			 pop dx_back
+			 pop cx
+		LOOP Loop2
+
+	pop dy_back
+	pop dx_back	
+ret
+DrawBackground endp
 End Main
