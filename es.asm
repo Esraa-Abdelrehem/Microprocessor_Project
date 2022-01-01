@@ -381,7 +381,63 @@ Level_1 proc                                   ;level1
 	call Level_2 
 ret
 Level_1 endp
-	
+	Level_2 proc                                    ;level2
+
+    call DrawBackground
+	add gamelevel,1
+	mov Dx_Mario,0
+	mov Dy_Mario,163
+    mov scoreflag,0
+    mov scoreflag2,0
+    mov scoreflag3,0
+    call Screen
+    call CallHurdles
+    call drawFlag
+   Loopinfinite:
+        cmp lives,0
+        je ex1
+        call DrawMario
+        ;-----------------MOVEMENT OF MONSTER------------------------------
+
+	    .if Dx_Monster <=152 && monflag==1        ;enemy1
+             dec Dx_Monster
+	    .endif
+
+	    .if Dx_Monster >=116 && monflag==0
+             inc Dx_monster
+	    .endif
+
+	    .if Dx_Monster==152
+	        mov monflag,1
+	    .endif
+
+	    .if Dx_Monster==116
+	        mov monflag,0
+	    .endif
+
+
+
+	    .if Dx2_Monster <=220 && monflag2==1      ;enemy2
+             dec Dx2_Monster
+	    .endif
+
+	    .if Dx2_Monster >=187 && monflag2==0
+             inc Dx2_monster
+	    .endif
+
+	    .if Dx2_Monster==220
+	        mov monflag2,1
+	    .endif
+
+	    .if Dx2_Monster==187
+	        mov monflag2,0
+	    .endif
+
+	    call DrawMonster
+	    call DrawMonster2
+		ret
+Level_2 endp
+
 	DrawMario proc                        			; draw mario
 	push Dx_Mario
 	push Dy_Mario
