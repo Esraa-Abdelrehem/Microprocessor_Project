@@ -435,9 +435,111 @@ Level_1 endp
 
 	    call DrawMonster
 	    call DrawMonster2
+		;------------------MOVEMENT AND FLYING----------------
+	    call Screen
+	    Call Keydetect
+		Call FlyUp
+		.if Dx_Mario < 80 || Dx_Mario > 120 && Dx_Mario < 150 || Dx_Mario > 190 && Dx_Mario < 220 || Dx_Mario > 260
+		    Call FlyDown
+		.elseif Dy_Mario < 120
+		    Call FlyDown
+		    Call FlyUp
+		.endif
+		call CallHurdles
+		call drawsurface
+		;------------------------------------------------------
+
+
+		;---------------------MONSTER AND MARIO COLLISION-------
+		 Call getdownpixel
+		 .if al == 06h
+		      dec lives
+		      mov Dx_Mario,0
+		      mov Dy_Mario,163
+		      call DrawBackground
+		      call callHurdleslevel3
+		      call DrawFlag
+		      call DrawSurface
+		.endif
+
+
+		;-------------------------------------------------------
+
+
+		;------------------------HEART CHOCOLATE AND SCORE--------
+		.if scoreflag==0
+		    mov dx_heart,70
+		    mov dy_heart,50
+			call DrawHeart
+		.endif
+		.if Dx_Mario>=47 && Dx_Mario <=87 && scoreFlag==0
+	       .if Dy_Mario>=45 && Dy_Mario<=65
+		        add lives,1
+		        mov scoreflag,1
+		        mov dx_heart,70
+		        mov dy_heart,50
+		        call DrawHeartBox
+	       .endif
+	    .endif
+
+	    .if scoreflag2==0
+	        mov dx_choc, 230
+            mov dy_choc, 80
+			call DrawChocolate
+		.endif
+		.if Dx_Mario>=207 && Dx_Mario <=247 && scoreFlag2==0
+	       .if Dy_Mario>=70 && Dy_Mario<=96
+		        add gameScore,3
+		        mov scoreflag2,1
+		        mov dx_choc, 230
+                mov dy_choc, 80
+		        call DrawChocolateBox
+	       .endif
+	    .endif
+
+	    .if scoreflag3==0
+			mov dx_coin,170
+			mov dy_coin,120
+			call DrawCoin
+		.endif
+	    .if Dx_Mario>=147 && Dx_Mario <=187 && scoreFlag3==0
+	       .if Dy_Mario>=105 && Dy_Mario<=146
+		        add gamescore,1
+		        mov scoreflag3,1
+		        mov dx_coin,170
+			    mov dy_coin,120
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    ;---------------------------------------------------------
+
+
+
+		.if Dx_Mario>=292
+		    jmp ex1
+		.endif
+
+		jmp Loopinfinite
+	ex1:
+	   call Level_3
 		ret
 Level_2 endp
-
+Level_3 proc                                    ;level3
+   cmp lives,0
+   je ex2
+   call DrawBackground
+   mov Dx_Mario,0
+   mov Dy_Mario,163
+   add gameLevel,1
+   call callHurdleslevel3
+   call DrawCastle
+   call DrawSurface
+   ret
+Level_3 endp
+   
+   
+   
 	DrawMario proc                        			; draw mario
 	push Dx_Mario
 	push Dy_Mario
