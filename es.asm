@@ -256,7 +256,7 @@ scoreflag2 byte 0
 scoreflag3 byte 0
 ground word 0
 flycount word 0
-pikaflag word 0
+FinalMonsterflag word 0
 monflag word 0
 monflag2 word 0
 lives word 2
@@ -290,7 +290,7 @@ Level_1 proc                                   ;level1
 	mov scoreflag3, 0
 	mov ground,s 0
 	mov flycount, 0
-	mov pikaflag, 0
+	mov FinalMonsterflag, 0
 	mov monflag2,0
 	mov monflag, 0
 	mov lives, 2
@@ -526,7 +526,7 @@ Level_1 endp
 		ret
 Level_2 endp
 Level_3 proc                                    ;level3
-   cmp lives,0
+  cmp lives,0
    je ex2
    call DrawBackground
    mov Dx_Mario,0
@@ -535,6 +535,161 @@ Level_3 proc                                    ;level3
    call callHurdleslevel3
    call DrawCastle
    call DrawSurface
+   mov scoreflag,0
+   mov scoreflag2,0
+   mov scoreflag3,0
+   
+   Loopinfinite:
+         call DrawMario
+        ;-----------------MOVEMENT OF FinalMonsterCHU AND MONSTER AND FIREBALL MOVEMENT----------
+	    .if Dx_Monster <=152 && monflag==1
+             dec Dx_Monster
+	    .endif
+
+	    .if Dx_Monster >=116 && monflag==0
+             inc Dx_monster
+	    .endif
+
+	    .if Dx_Monster==152
+	        mov monflag,1
+	    .endif
+
+	    .if Dx_Monster==116
+	        mov monflag,0
+	    .endif
+
+	    .if Dx_FinalMonster <=235 && FinalMonsterflag == 1
+             dec Dx_FinalMonster
+	    .endif
+
+	    .if Dx_FinalMonster >=50 && FinalMonsterflag==0
+             inc Dx_FinalMonster
+	    .endif
+
+	    .if Dx_FinalMonster == 235
+	        mov FinalMonsterflag,1
+	    .endif
+
+	    .if Dx_FinalMonster == 50
+		mov FinalMonsterflag,0
+	    .endif
+	    inc dy_ball
+	    call DrawMonster
+	    call drawFinalMonster
+	    .if dy_ball <181
+	       call drawball
+	    .endif
+
+	    .if dy_ball ==181
+	       call DrawBox
+           mov dy_ball, 67
+           mov bx,dx_FinalMonster
+           add bx,14
+           mov dx_ball,bx
+	    .endif 
+
+
+	    ;------------------------------------------------------
+
+
+	    ;---------------------MONSTER AND MARIO COLLISION-------
+		 Call getdownpixel
+		 .if al == 06h
+		      dec lives
+		      mov Dx_Mario,0
+		      mov Dy_Mario,163
+		      call DrawBackground
+		      call callHurdleslevel3
+		      call DrawCastle
+		      call DrawSurface
+		.endif
+
+
+		;-------------------------------------------------------
+        
+         
+        ;----------COLLISION WITH FinalMonsterCHU AND FIREBALL-------------------------
+
+        mov bx,dy_mario
+        sub bx,14
+        mov ax,bx
+        mov dx,dx_mario
+        mov cx,dx
+        add cx,25
+	    .if dy_ball >= bx && dy_ball<=ax && dx_ball>=dx && dx_ball<=cx
+	        dec lives
+	        mov Dx_Mario,0
+	        mov Dy_Mario,163
+	        call DrawBackground
+	        call callHurdleslevel3
+	        call DrawCastle
+		    call DrawSurface
+	    .endif
+        
+        mov bx,dy_FinalMonster
+        mov ax,bx
+        add ax,61
+        mov dx,dx_FinalMonster
+        mov cx,dx
+        sub dx,23
+        add cx,31
+	    .if dy_mario >= bx && dy_mario<=ax && dx_mario>=dx && dx_mario<=cx
+	        dec lives
+	        mov Dx_Mario,0
+	        mov Dy_Mario,163
+	        call DrawBackground
+	        call callHurdleslevel3
+	        call DrawCastle
+		    call DrawSurface
+	    .endif
+
+	    .if lives==0
+	        mov touchfire,1
+	    .endif
+	    cmp touchfire,1
+		je ex2
+        ;----------------------------------------------------------
+
+	    ;------------------MOVEMENT AND FLYING------------
+	    call Screen
+	    Call Keydetect
+		Call FlyUp
+		.if Dx_Mario < 80 || Dx_Mario > 120 && Dx_Mario < 150 || Dx_Mario > 190
+		    Call FlyDown
+		.elseif Dy_Mario < 120
+		    Call FlyDown
+		    Call FlyUp
+		.endif
+		
+		call drawsurface
+		call callHurdleslevel3
+        ;------------------------------------------------------------
+
+        ;--------------------HEART AND SCORE------------------------------
+		.if scoreflag==0
+		    mov dx_coin,130
+		    mov dy_coin,90
+			call DrawCoin
+		.endif
+		.if Dx_Mario>=107 && Dx_Mario <=147 && scoreFlag==0
+	       .if Dy_Mario>=85 && Dy_Mario<=105
+		        add gameScore,1
+		        mov scoreflag,1
+		        mov dx_coin,130
+		        mov dy_coin,90
+		        call DrawCoinBox
+	       .endif
+	    .endif
+
+	    ;-------------------------------------------------------- 
+
+
+		cmp Dx_Mario,247
+		 jae ex2
+
+		jmp Loopinfinite
+    ex2:
+    call GameOver
    ret
 Level_3 endp
    
