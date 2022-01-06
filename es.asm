@@ -116,6 +116,7 @@ db 54,00,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31
 db 00,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,00,208,208,00
 db 00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,00,208,208,00
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,00,208,208,00
+
 Castle db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,208,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54  
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,41,41,41,41,208,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,41,41,41,208,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54  
@@ -217,8 +218,106 @@ db  0,114,114,114,114, 0,114,114,114,114,114,114,114,114
 db  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0
 db  0,114,114,114,114,114,114,114,114, 0,114,114,114,114
 
+
+Chocolate db 54,54,114,114,114,114,114,114,54,54,54,54,54,54				;chocolate
+db 54,54,114,42,42,114,42,42,114,54,54,54,54,54
+db 54,54,114,42,42,114,42,42,114,42,54,54,54,54
+db 54,54,114,114,114,114,114,114,114,114,114,54,54,54
+db 54,54,114,42,42,114,42,42,114,42,42,114,54,54
+db 54,54,114,42,42,114,42,42,114,42,42,114,54,54
+db 54,54,114,114,114,114,114,114,114,114,114,114,54,54
+db 15,15,15,114,114,114,114,114,114,114,114,15,15,15
+db 54,54,15,15,15,15,15,15,15,15,15,15,54,54
+db 54,54,80,64,80,64,80,80,15,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,80,80,64,80,64,80,54,54
+db 54,54,80,64,80,64,64,64,64,80,64,80,54,54
+db 54,54,80,64,80,80,80,80,80,80,64,80,54,54
+db 54,54,80,64,64,64,64,64,64,64,64,80,54,54
+db 54,54,80,80,80,80,80,80,80,80,80,80,54,54
+
+Ball db 54,54,54,54,54,54,54,54,54
+db 54,54,54,54,40,54,54,54,54 									;fireball
+db 54,54,54,54,40,54,54,54,54
+db 54,54,40,54,40,54,54,54,54
+db 54,54,41,54,41,40,54,54,54
+db 54,54,41,41,42,41,40,54,54
+db 54,41,41,41,42,41,40,54,54
+db 54,40,41,42,43,42,41,40,54
+db 40,41,42,43,44,43,42,41,40
+db 40,41,42,43,44,43,42,41,40
+db 40,41,42,43,44,43,42,41,40
+db 40,41,42,43,44,43,42,41,40
+db 54,40,41,42,43,42,41,40,54
+db 54,54,40,41,42,41,40,54,54
+Pikachu db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,18,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,18,44,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,18,18,54,54
+db 54,18,18,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,18,18,18,18,54,54
+db 54,18,18,18,18,18,54,54,54,54,54,54,54,54,54,54,54,54,18,44,18,54,54,54,54,54,54,54,54,54,18,18,18,18,18,54,54
+db 54,18,18,18,18,18,18,54,54,54,54,54,54,54,18,18,18,18,18,18,18,18,54,54,54,54,54,54,54,18,18,18,18,18,18,54,54
+db 54,18,18,18,18,44,44,18,54,54,54,54,18,18,44,44,44,44,44,44,44,44,18,18,54,54,54,54,18,44,44,18,18,18,18,54,54
+db 54,54,18,18,18,44,44,44,18,54,18,18,44,44,44,44,44,44,44,44,44,44,44,44,18,18,54,18,44,44,44,18,18,18,54,54,54
+db 54,54,54,18,44,44,44,44,44,18,44,44,44,44,44,18,18,18,18,18,18,18,18,44,44,44,18,44,44,44,44,44,18,54,54,54,54
+db 54,54,54,18,44,44,44,44,44,18,44,18,18,18,18,44,44,44,44,44,44,44,44,18,18,18,18,44,44,44,44,44,18,54,54,54,54
+db 54,54,54,18,44,44,44,44,44,44,18,18,44,44,44,44,44,44,44,44,44,44,44,44,18,18,44,44,44,44,44,44,18,54,54,54,54
+db 54,54,54,54,18,44,44,44,44,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54
+db 54,54,54,54,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54
+db 54,54,54,54,54,18,44,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54,54
+db 54,54,54,54,54,18,44,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54,54
+db 54,54,54,54,18,44,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54
+db 54,54,54,54,18,44,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,54,54,54,54,54
+db 54,54,54,18,18,18,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,18,18,18,54,54,54,54
+db 54,54,18,18,44,18,44,44,44,44,00,00,44,44,44,44,44,44,44,44,44,44,44,44,00,00,44,44,44,44,18,44,18,18,54,54,54
+db 54,18,44,18,44,18,44,44,44,00,15,00,00,44,44,44,44,44,44,44,44,44,44,00,00,15,00,44,44,44,18,44,18,44,18,54,54
+db 54,18,44,18,18,18,44,44,44,00,00,00,00,44,44,44,44,44,44,44,44,44,44,00,00,00,00,44,44,44,18,18,18,44,18,54,54
+db 54,54,18,44,18,44,44,44,44,44,00,00,44,44,44,44,44,44,44,44,44,44,44,44,00,00,44,44,44,44,44,18,44,18,54,54,54
+db 54,54,18,18,18,44,44,40,40,44,44,44,44,44,44,44,44,00,00,44,44,44,44,44,44,44,44,40,40,44,44,18,18,18,54,54,54
+db 54,54,54,18,18,44,40,40,40,40,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,40,40,40,40,44,18,18,54,54,54,54
+db 54,54,54,54,54,18,40,40,40,40,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,40,40,40,40,18,54,54,54,54,54,54
+db 54,54,54,54,54,18,44,40,40,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,40,40,44,18,54,54,54,54,54,54
+db 54,54,54,54,54,54,18,44,44,44,44,44,44,44,00,44,44,00,00,44,44,00,44,44,44,44,44,44,44,18,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,18,18,18,44,44,44,44,44,44,00,00,44,44,00,00,44,44,44,44,44,44,18,18,18,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,18,18,18,44,44,44,44,44,44,44,44,44,44,44,44,18,18,18,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,18,44,18,18,44,44,44,44,44,44,44,44,18,18,44,18,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,18,44,44,44,18,18,18,18,18,18,18,18,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,18,44,44,44,44,44,18,40,44,44,44,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,18,18,44,44,44,40,44,44,18,44,44,44,18,18,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,18,44,18,44,41,41,40,18,44,18,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,18,41,42,41,40,18,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,41,41,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,42,44,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,42,44,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,42,44,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,42,44,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,41,43,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,40,42,41,40,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+Pole db 00,208,208,00
 ;*SCREEN MODE*
-_welcome byte "WELCOME TO SUPER MARIA"
+_welcome byte "WELCOME TO SUPER MARIO"
 _enter byte "ENTER YOUR NAME UPTO 8 LETTERS"
 _name byte 8 DUP('$')
 _over byte "GAME OVER"
@@ -227,7 +326,13 @@ _quit byte "Press ENTER to Quit"
 _level byte "Level:"
 _score byte "Score:"
 _cursor byte 9
-
+;--------HURDLES------------------
+xpos word 0
+ypos word 0
+len word 0
+hei word 0
+temp1 word 0
+temp2 word 0
 ;*MARIO*
 Dx_Mario word 20
 Dy_Mario word 163
@@ -237,6 +342,7 @@ Dy_Monster word 177
 
 Dx2_Monster word 190
 Dy2_Monster word 177
+
 ;*BACKGROUND*
 dx_back word  0
 dy_back word 20
@@ -246,6 +352,30 @@ dy_heart word    130
 ;*COIN*
 dx_coin word 50
 dy_coin word 50
+
+;-------CHOCOLATE--------
+dx_choc word 200
+dy_choc word 120
+
+;---------PIKACHU--------
+dx_pika word 76
+dy_pika word 20
+
+;---------FIRE BALL------
+dx_ball word 89
+dy_ball word 67
+
+;------------CASTLE---------
+dx_castle word 270
+dy_castle word 102
+
+;------------FLAG---------
+dx_flag word 283
+dy_flag word 25
+
+;---------SURFACE BRICKS-----
+xs word 0
+ys word 196
 ;**FLAGS AND SCORES**
 flyFlag byte 0
 downFlag byte 0
@@ -262,6 +392,7 @@ monflag2 word 0
 lives word 2
 touchmons word 0
 touchfire word 0
+
 .code
 
 ;***MAIN***
@@ -272,7 +403,7 @@ Main proc
    mov Dy_mario,20
    call ClearScreen
    call StartScreen
-    call Level_1
+   call Level_1
 	
 Main endp
 Level_1 proc                                   ;level1
@@ -817,6 +948,34 @@ ClearScreen proc                                ;clear screen
     int 10h
 ret
 ClearScreen endp
+DrawMonster2 proc                                ; draw monster
+	mov cx,18
+	push Dx2_Monster
+	push Dy2_Monster
+	mov si,offset Monster
+	Loop1:
+	     push cx
+	     push Dx2_Monster
+	     mov cx,18
+	     Loop2:
+	         push cx
+	         mov ah,0Ch
+			 mov al,byte ptr [si]
+			 mov cx,Dx2_Monster
+			 mov dx,Dy2_Monster
+	         int 10h
+			 inc Dx2_Monster
+			 pop cx
+			 add si ,TYPE Monster
+	     LOOP Loop2
+	     inc Dy2_Monster
+	     pop Dx2_Monster
+	     pop cx
+	LOOP Loop1
+	     pop Dy2_Monster
+	     pop Dx2_Monster
+ret
+DrawMonster2 endp
 
 DrawMonster proc                                ; draw monster
 	mov cx,18
@@ -1077,6 +1236,282 @@ DrawFlag proc                					  ; draw flag
 ret
 DrawFlag endp
 
+
+
+
+
+DrawHeartBox proc                                  ;draw heart box
+	push dx_heart
+	push dy_heart
+	mov si, offset Heart
+		mov cx,13
+		Loop2:
+			 push cx
+			 push dx_heart
+			 mov cx,15
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,54
+				 mov cx,dx_heart
+				 mov dx,dy_heart
+				 int 10h
+				 inc dx_heart
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_heart
+			 pop dx_heart
+			 pop cx
+		LOOP Loop2
+		pop dy_heart
+		pop dx_heart
+ret
+DrawHeartBox endp
+
+DrawCastle proc                                  ;draw castle
+	push dx_castle
+	push dy_castle
+	mov si, offset Castle
+		mov cx,94
+		Loop2:
+			 push cx
+			 push dx_castle
+			 mov cx,45
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_castle
+				 mov dx,dy_castle
+				 int 10h
+				 inc dx_castle
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_castle
+			 pop dx_castle
+			 pop cx
+		LOOP Loop2
+		pop dy_castle
+		pop dx_castle
+ret
+DrawCastle endp
+
+
+DrawCoin proc                                  ;draw coin
+	push dx_coin
+	push dy_coin
+	mov si, offset Coin
+		mov cx,16
+		Loop2:
+			 push cx
+			 push dx_coin
+			 mov cx,14
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_coin
+				 mov dx,dy_coin
+				 int 10h
+				 inc dx_coin
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_coin
+			 pop dx_coin
+			 pop cx
+		LOOP Loop2
+		pop dy_coin
+		pop dx_coin
+ret
+DrawCoin endp
+
+DrawCoinBox proc                                  ;draw coin box
+	push dx_coin
+	push dy_coin
+		mov cx,16
+		Loop2:
+			 push cx
+			 push dx_coin
+			 mov cx,14
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,54
+				 mov cx,dx_coin
+				 mov dx,dy_coin
+				 int 10h
+				 inc dx_coin
+				 pop cx
+			 LOOP Loop3
+			 inc dy_coin
+			 pop dx_coin
+			 pop cx
+		LOOP Loop2
+		pop dy_coin
+		pop dx_coin
+ret
+DrawCoinBox endp
+
+
+DrawPika proc                                  ;draw Pika
+	push dx_pika
+	push dy_pika
+	mov si, offset Pikachu
+		mov cx,61
+		Loop2:
+			 push cx
+			 push dx_pika
+			 mov cx,37
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_pika
+				 mov dx,dy_pika
+				 int 10h
+				 inc dx_pika
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_pika
+			 pop dx_pika
+			 pop cx
+		LOOP Loop2
+		pop dy_pika
+		pop dx_pika
+ret
+DrawPika endp
+
+
+
+Drawball proc                                  ;draw ball
+	push dx_ball
+	push dy_ball
+	mov si, offset Ball
+		mov cx,14
+		Loop2:
+			 push cx
+			 push dx_ball
+			 mov cx,9
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_ball
+				 mov dx,dy_ball
+				 int 10h
+				 inc dx_ball
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_ball
+			 pop dx_ball
+			 pop cx
+		LOOP Loop2
+		pop dy_ball
+		pop dx_ball
+ret
+Drawball endp
+
+Drawbox proc                                  ;draw ball
+	push dx_ball
+	push dy_ball
+		mov cx,14
+		Loop2:
+		     mov si, offset Ball
+			 push cx
+			 push dx_ball
+			 mov cx,9
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_ball
+				 mov dx,dy_ball
+				 int 10h
+				 inc dx_ball
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_ball
+			 pop dx_ball
+			 pop cx
+		LOOP Loop2
+		pop dy_ball
+		pop dx_ball
+ret
+Drawbox endp
+
+
+DrawChocolate proc                               ;draw chocolate
+	push dx_choc
+	push dy_choc
+	mov si, offset Chocolate
+		mov cx,20
+		Loop2:
+			 push cx
+			 push dx_choc
+			 mov cx,14
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_choc
+				 mov dx,dy_choc
+				 int 10h
+				 inc dx_choc
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_choc
+			 pop dx_choc
+			 pop cx
+		LOOP Loop2
+		pop dy_choc
+		pop dx_choc
+ret
+DrawChocolate endp
+
+
+DrawChocolateBox proc                               ;draw chocolate box
+	push dx_choc
+	push dy_choc
+	mov si, offset Chocolate
+		mov cx,20
+		Loop2:
+			 push cx
+			 push dx_choc
+			 mov cx,14
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,54
+				 mov cx,dx_choc
+				 mov dx,dy_choc
+				 int 10h
+				 inc dx_choc
+				 pop cx
+				 inc si
+			
+			 LOOP Loop3
+			 inc dy_choc
+			 pop dx_choc
+			 pop cx
+		LOOP Loop2
+		pop dy_choc
+		pop dx_choc
+ret
+DrawChocolateBox endp
 DrawBackground proc
     mov dx_back,0
 	mov dy_back,20
@@ -1106,4 +1541,380 @@ DrawBackground proc
 	pop dx_back	
 ret
 DrawBackground endp
+
+DrawBackground2 proc
+
+	mov dx_back,0
+	mov dy_back,0
+	push dx_back
+	push dy_back
+		mov cx,200
+		Loop2:
+			 push cx
+			 push dx_back
+			 mov cx,320
+			 Loop3:
+				 push cx
+				 mov ah,0Ch
+				 mov al,00
+				 mov cx,dx_back
+				 mov dx,dy_back
+				 int 10h
+				 inc dx_back
+				 pop cx
+			 LOOP Loop3
+			 inc dy_back
+			 pop dx_back
+			 pop cx
+		LOOP Loop2
+	pop dy_back
+	pop dx_back	
+	mov Dx_Mario,145
+	mov Dy_mario,20
+	call DrawFlag2
+    call DrawSurface
+    call DrawMario2
+
+	mov _cursor,15
+	mov ah,02h  ;set cursor
+	mov dh,8
+	mov dl,_cursor
+	int 10h
+	mov cx,9
+	mov si,offset _over
+
+	LoopOver:
+	    
+	    push cx
+	    mov al,[si]
+	    mov bh,0
+	    mov bl,15
+	    mov cx,1
+	    mov ah,0Ah
+	    int 10h
+	    add si, TYPE _over
+	    inc _cursor
+	    mov ah,02h
+	    mov dl,_cursor
+	    int 10h
+
+	    pop cx
+	LOOP LoopOver
+
+	mov _cursor,16
+	mov ah,02h  ;set cursor
+	mov dh,12
+	mov dl,_cursor
+	int 10h
+	mov cx,6
+	mov si,offset _Level
+
+	LoopLevel:
+	    
+	    push cx
+	    mov al,[si]
+	    mov bh,0
+	    mov bl,15
+	    mov cx,1
+	    mov ah,0Ah
+	    int 10h
+	    add si, TYPE _level
+	    inc _cursor
+	    mov ah,02h
+	    mov dl,_cursor
+	    mov dh, 12
+	    int 10h
+
+	    pop cx
+	LOOP LoopLevel
+
+	mov al,gameLevel
+	add al,48
+	mov bh,0
+	mov bl,15
+	mov cx,1
+	mov ah,0Ah
+	int 10h
+
+	mov _cursor,16
+	mov ah,02h  ;set cursor
+	mov dh,14
+	mov dl,_cursor
+	int 10h
+	mov cx,6
+	mov si,offset _Score
+
+	LoopScore:
+	    
+	    push cx
+	    mov al,[si]
+	    mov bh,0
+	    mov bl,15
+	    mov cx,1
+	    mov ah,0Ah
+	    int 10h
+	    add si, TYPE _Score
+	    inc _cursor
+	    mov ah,02h
+	    mov dl,_cursor
+	    mov dh, 14
+	    int 10h
+
+	    pop cx
+	LOOP LoopScore
+
+	mov al,gameScore
+	add al,48
+	mov bh,0
+	mov bl,15
+	mov cx,1
+	mov ah,0Ah
+	int 10h
+
+
+
+	mov _cursor,8
+	mov ah,02h  ;set cursor
+	mov dh,16
+	mov dl,_cursor
+	int 10h
+	mov cx,24
+	mov si,offset _again
+
+	LoopAgain:
+	    
+	    push cx
+	    mov al,[si]
+	    mov bh,0
+	    mov bl,15
+	    mov cx,1
+	    mov ah,0Ah
+	    int 10h
+	    add si, TYPE _again
+	    inc _cursor
+	    mov ah,02h
+	    mov dl,_cursor
+	    mov dh, 16
+	    int 10h
+
+	    pop cx
+	LOOP LoopAgain
+
+
+	mov _cursor,10
+	mov ah,02h  ;set cursor
+	mov dh,18
+	mov dl,_cursor
+	int 10h
+	mov cx,19
+	mov si,offset _quit
+
+	LoopQuit:
+	    
+	    push cx
+	    mov al,[si]
+	    mov bh,0
+	    mov bl,15
+	    mov cx,1
+	    mov ah,0Ah
+	    int 10h
+	    add si, TYPE _quit
+	    inc _cursor
+	    mov ah,02h
+	    mov dl,_cursor
+	    mov dh, 18
+	    int 10h
+
+	    pop cx
+	LOOP LoopQuit 
+   
+ret
+DrawBackground2 endp
+;---------------------------------------------------------------------------------------------------------------------
+
+;----------------------------------------HURDLES AND KEY DETECTION ---------------------------------------------------
+
+KeyDetect proc                                   ;key detection
+	mov ah, 01h
+	int 16h
+	jz ex
+	mov ah,0
+	int 16h
+	cmp ah,'M'
+	jne label2
+	label1:
+	    Call getrpixel
+	    cmp al,04h
+	    je ex
+	    Call getuprpixel
+	    cmp al,04h
+	    je ex
+	    add Dx_Mario,1
+	    jmp ex
+	label2: 		   ;LEFT
+	    .if (dx_mario>0)
+		    cmp ah,'K'
+		    jne label3
+		    Call getlpixel
+		    cmp al,04h
+		    je ex
+		    sub Dx_Mario,1
+		.endif
+	    jmp label4
+	label3: 		   ;UP
+	    cmp ah,'H'
+	    jne label4
+	    .if Dy_Mario > 20
+			sub Dy_Mario,1
+			cmp Dy_Mario,163
+			jne notinit
+				mov ground,1
+				jmp chk
+			notinit:
+				mov ground,0
+			chk:
+				cmp ground,0
+				jne ex
+				mov flyFlag, 1
+	         	mov flyCount,0
+        .endif
+         	jmp ex
+	label4: 		    ;DOWN
+	    call getrlpixel
+	    cmp al,04h
+	    je ex
+	    call getrpixel
+	    cmp al,04h
+	    je ex
+	    call getuprpixel
+	    cmp al,04h
+	    je ex
+	    call getlpixel
+	    cmp al,04h
+	    je ex
+	    cmp ah,80h
+	    je ex
+	    cmp ground,0
+	    jne ex
+	ex:
+ret
+KeyDetect endp
+
+GetrPixel proc                                   ;rightpixel
+    mov ah,0dh
+    mov bh,0
+    mov cx,Dx_Mario
+    add cx,23
+    Mov dx,Dy_Mario
+    int 10h
+ret
+GetrPixel endp
+
+GetuprPixel proc				      ;up right pixel
+    mov ah,0dh
+    mov bh,0
+    mov cx,Dx_Mario
+    add cx,23
+    Mov dx,Dy_Mario
+    add dx,32
+    int 10h
+ret
+GetuprPixel endp
+
+GetdownPixel proc                    ; down pixel
+    mov ah,0dh
+    mov bh,0
+    mov cx,Dx_Mario
+    add cx,11
+    mov dx,Dy_Mario
+    add dx,25
+    int 10h
+ret
+GetdownPixel endp
+
+GetlPixel proc                                   ;left pixel
+    mov ah,0dh
+    mov bh,0
+    mov cx,Dx_Mario
+    sub cx,1
+    Mov dx,Dy_Mario
+    int 10h
+ret
+GetlPixel endp
+
+GetrlPixel proc                                 ;right left pixel
+    mov ah,0dh
+    mov bh,0
+    mov cx,Dx_Mario
+    sub cx,1
+    Mov dx,Dy_Mario
+    add dx,35
+    int 10h
+ret
+GetrlPixel endp
+
+FlyUp proc                                      ;fly up
+	.if flyFlag == 1 && dy_mario>20
+		add flyCount,1
+		.if flyCount < 60
+			sub Dy_Mario,1
+		.else 
+			mov flyFlag, 0
+			mov downFlag, 1
+		.endif
+	.endif
+	
+		
+ret
+FlyUp endp
+
+ 
+FlyDown proc                                    ;fly down
+	.if downFlag == 1 || dy_mario==20
+		.if Dy_Mario<163
+			add Dy_Mario,1
+		.else
+			mov downFlag, 0
+			mov ground, 1
+		.endif
+	.endif
+	ex:
+ret
+FlyDown endp
+
+
+
+CallHurdles proc				 ;calling hurdles
+    mov xpos,100
+    mov ypos,160
+    mov len,36
+    mov hei,15
+    Call DrawHurdles
+    mov xpos,170
+    mov ypos,160
+    mov len,36
+    mov hei,15
+    Call DrawHurdles
+    mov xpos,240
+    mov ypos,160
+    mov len,36
+    mov hei,15
+    Call DrawHurdles
+ret
+CallHurdles endp
+
+
+CallHurdleslevel3 proc				;calling hurdles for level 3
+    mov xpos,100
+    mov ypos,160
+    mov len,36
+    mov hei,15
+    Call DrawHurdles
+    mov xpos,170
+    mov ypos,160
+    mov len,36
+    mov hei,15
+    Call DrawHurdles
+ret
+CallHurdleslevel3 endp
 End Main
