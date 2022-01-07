@@ -1,8 +1,8 @@
 # Microprocessor_Project
 
 ![banner](https://user-images.githubusercontent.com/93450859/148617398-b5806af7-284e-41dd-8ebe-1c42183c97ae.jpg)
-(https://img.shields.io/github/downloads/Esraa-Abdelrehem/Microprocessor_Project/total?logo=GitHub&logoColor=%2300ff00&style=plastic) (https://img.shields.io/github/languages/top/Esraa-Abdelrehem/Microprocessor_Project?logo=github&style=plastic)
-(https://img.shields.io/github/languages/top/Esraa-Abdelrehem/Microprocessor_Project?logo=github&style=plastic)
+![GitHub top language](https://img.shields.io/github/downloads/Esraa-Abdelrehem/Microprocessor_Project/total?logo=GitHub&logoColor=%2300ff00&style=plastic) 
+![GitHub top language](https://img.shields.io/github/languages/top/Esraa-Abdelrehem/Microprocessor_Project?logo=github&style=plastic)
 
 ---
 
