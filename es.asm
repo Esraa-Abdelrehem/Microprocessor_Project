@@ -254,7 +254,7 @@ db 40,41,42,43,44,43,42,41,40
 db 40,41,42,43,44,43,42,41,40
 db 54,40,41,42,43,42,41,40,54
 db 54,54,40,41,42,41,40,54,54
-Pikachu db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
+FinalMonster db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
 db 54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,18,44,44,18,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54
@@ -357,9 +357,9 @@ dy_coin word 50
 dx_choc word 200
 dy_choc word 120
 
-;---------PIKACHU--------
-dx_pika word 76
-dy_pika word 20
+;---------FinalMonster--------
+dx_FinalMonster word 76
+dy_FinalMonster word 20
 
 ;---------FIRE BALL------
 dx_ball word 89
@@ -419,7 +419,7 @@ Level_1 proc                                   ;level1
 	mov scoreflag, 0
 	mov scoreflag2, 0
 	mov scoreflag3, 0
-	mov ground,s 0
+	mov ground, 0
 	mov flycount, 0
 	mov FinalMonsterflag, 0
 	mov monflag2,0
@@ -654,10 +654,10 @@ Level_1 endp
 		jmp Loopinfinite
 	ex1:
 	   call Level_3
-		ret
+ret
 Level_2 endp
 Level_3 proc                                    ;level3
-  cmp lives,0
+   cmp lives,0
    je ex2
    call DrawBackground
    mov Dx_Mario,0
@@ -706,7 +706,7 @@ Level_3 proc                                    ;level3
 	    .endif
 	    inc dy_ball
 	    call DrawMonster
-	    call drawFinalMonster
+	    call Drawf_monster
 	    .if dy_ball <181
 	       call drawball
 	    .endif
@@ -821,11 +821,28 @@ Level_3 proc                                    ;level3
 		jmp Loopinfinite
     ex2:
     call GameOver
-   ret
+ret
 Level_3 endp
    
    
-   
+GameOver proc
+    call DrawBackground2
+ _nex:   
+    mov ah,0h
+    int 16h
+    .if(ah==01h)
+       call level_1
+    .endif
+    cmp ah,1ch
+    je ex
+    jmp _nex
+
+ex:
+   call ClearScreen
+   mov ah,4ch
+   int 21h
+ret 
+GameOver endp
 	DrawMario proc                        			; draw mario
 	push Dx_Mario
 	push Dy_Mario
@@ -857,10 +874,10 @@ ret
 DrawMario endp
 StartScreen proc                                ;start screen
 	
-   ; Call DrawFlag2
-    ;Call CallHurdles
-    ;call DrawMario2
-    ;call drawsurface
+    Call DrawFlag2
+    Call CallHurdles
+    call DrawMario2
+    call drawsurface
     
 	mov ah,02h  ;set cursor
 	mov dh,8
@@ -935,9 +952,9 @@ StartScreen proc                                ;start screen
 
 	    pop cx
 	LOOP LoopName
-;	call DrawFlag
-	;call CallHurdles
-	;call DrawSurface
+    call DrawFlag
+	call CallHurdles
+	call DrawSurface
 	call DrawMario2
 ret 
 StartScreen endp
@@ -1100,7 +1117,13 @@ Screen proc                                      ;draw screen
 	LOOP LoopLevel
 
 
-	
+	mov al,gamelevel
+	add al,48
+	mov bh,0
+	mov bl,15
+	mov cx,1
+	mov ah,0Ah
+	int 10h
     
     Add _cursor,9
 	mov cx,8
@@ -1155,7 +1178,32 @@ Screen proc                                      ;draw screen
 	    pop cx
 	LOOP LoopScore
 
-	
+	mov al,gameScore         ;for printing the score i.e a number
+	add al,48
+	mov bh,0
+	mov bl,15
+	mov cx,1
+	mov ah,0Ah
+	int 10h
+
+    .if(dy_back==20)
+	    push dx_heart
+	    push dy_heart
+		mov cx,lives
+		mov bx,5
+		LoopLives:
+		    mov dx_heart,bx
+		    mov dy_heart,20
+		    push bx
+		    push cx
+		    call DrawHeart
+		    pop cx
+		    pop bx
+		    add bx,16
+		LOOP LoopLives
+		pop dy_heart
+	    pop dx_heart
+	.endif 
 
    
 
@@ -1228,7 +1276,30 @@ DrawFlag proc                					  ; draw flag
 			 pop dx_flag
 			 pop cx
 		LOOP Loop2
-	
+	mov cx,144
+		mov dx_flag,314
+		mov dy_flag,52
+		Loop4:
+			 push cx
+			 push dx_flag
+			 mov cx,4
+			 mov si,offset Pole
+			 Loop5:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_flag
+				 mov dx,dy_flag
+				 int 10h
+				 inc dx_flag
+				 pop cx
+				 inc si
+			
+			 LOOP Loop5
+			 inc dy_flag
+			 pop dx_flag
+			 pop cx
+		LOOP Loop4
         
 
 		pop dy_flag
@@ -1359,35 +1430,35 @@ ret
 DrawCoinBox endp
 
 
-DrawPika proc                                  ;draw Pika
-	push dx_pika
-	push dy_pika
-	mov si, offset Pikachu
+Drawf_monster proc                                  ;draw f_monster
+	push dx_FinalMonster
+	push dy_FinalMonster
+	mov si, offset FinalMonster
 		mov cx,61
 		Loop2:
 			 push cx
-			 push dx_pika
+			 push dx_FinalMonster
 			 mov cx,37
 			 Loop3:
 				 push cx
 				 mov ah,0Ch
 				 mov al,[si]
-				 mov cx,dx_pika
-				 mov dx,dy_pika
+				 mov cx,dx_FinalMonster
+				 mov dx,dy_FinalMonster
 				 int 10h
-				 inc dx_pika
+				 inc dx_FinalMonster
 				 pop cx
 				 inc si
 			
 			 LOOP Loop3
-			 inc dy_pika
-			 pop dx_pika
+			 inc dy_FinalMonster
+			 pop dx_FinalMonster
 			 pop cx
 		LOOP Loop2
-		pop dy_pika
-		pop dx_pika
+		pop dy_FinalMonster
+		pop dx_FinalMonster
 ret
-DrawPika endp
+Drawf_monster endp
 
 
 
@@ -1917,4 +1988,119 @@ CallHurdleslevel3 proc				;calling hurdles for level 3
     Call DrawHurdles
 ret
 CallHurdleslevel3 endp
+
+DrawFlag2 proc                					  ; draw flag
+	push dx_flag
+	push dy_flag
+	mov si, offset Flag
+		mov cx,27
+		Loop2:
+			 push cx
+			 push dx_flag
+			 mov cx,35
+			 Loop3:
+			    mov bl,[si]
+			    .if bl==54
+					 push cx
+					 mov ah,0Ch
+					 mov al,00
+					 mov cx,dx_flag
+					 mov dx,dy_flag
+					 int 10h
+					 inc dx_flag
+					 pop cx
+					 inc si
+				.else
+					 push cx
+					 mov ah,0Ch
+					 mov al,[si]
+					 mov cx,dx_flag
+					 mov dx,dy_flag
+					 int 10h
+					 inc dx_flag
+					 pop cx
+					 inc si
+				 .endif  
+			
+			 LOOP Loop3
+			 inc dy_flag
+			 pop dx_flag
+			 pop cx
+		LOOP Loop2
+
+		mov cx,144
+		mov dx_flag,314
+		mov dy_flag,52
+		Loop4:
+			 push cx
+			 push dx_flag
+			 mov cx,4
+			 mov si,offset Pole
+			 Loop5:
+				 push cx
+				 mov ah,0Ch
+				 mov al,[si]
+				 mov cx,dx_flag
+				 mov dx,dy_flag
+				 int 10h
+				 inc dx_flag
+				 pop cx
+				 inc si
+			
+			 LOOP Loop5
+			 inc dy_flag
+			 pop dx_flag
+			 pop cx
+		LOOP Loop4
+        
+
+		pop dy_flag
+		pop dx_flag
+ret
+DrawFlag2 endp
+
+DrawHurdles proc                                ;draw hurdles
+    mov cx,xpos
+    mov bx,xpos
+    add bx,hei
+    mov hei,bx
+    mov bx,ypos
+    add bx,len
+    mov len,bx
+    mov dx,ypos
+    mov ah,0ch
+    mov al,04h
+    col:
+	inc cx
+	int 10h
+	cmp cx,hei
+	jne col
+	mov cx,xpos
+	inc dx
+	cmp dx,len
+	jne col
+    sub xpos,5
+    sub ypos,5
+    mov cx,xpos
+    mov bx,xpos
+    add bx,25
+    mov hei,bx
+    mov bx,ypos
+    add bx,15
+    mov len,bx
+    mov dx,ypos
+    mov ah,0ch
+    mov al,04h
+     col1:
+	inc cx
+	int 10h
+	cmp cx,hei
+	jne col1
+
+	mov cx,xpos
+	inc dx
+	cmp dx,len
+	jne col1
+ret
+DrawHurdles endp
 End Main
