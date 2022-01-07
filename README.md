@@ -1,12 +1,15 @@
 # Microprocessor_Project
 
 ![banner](https://user-images.githubusercontent.com/93450859/148617398-b5806af7-284e-41dd-8ebe-1c42183c97ae.jpg)
-https://img.shields.io/github/downloads/Esraa-Abdelrehem/Microprocessor_Project/total?logo=GitHub&logoColor=%2300ff00&style=plastic https://img.shields.io/github/languages/top/Esraa-Abdelrehem/Microprocessor_Project?logo=github
+(https://img.shields.io/github/downloads/Esraa-Abdelrehem/Microprocessor_Project/total?logo=GitHub&logoColor=%2300ff00&style=plastic) (https://img.shields.io/github/languages/top/Esraa-Abdelrehem/Microprocessor_Project?logo=github&style=plastic)
 
 
 
 
 ![Picture1](https://user-images.githubusercontent.com/93450859/148609624-fe391666-3cca-4ebe-a379-21332733b534.png)
+
+
+QR Code for project
 ![qr_code](https://user-images.githubusercontent.com/93450859/148613640-a8d8c88a-50e4-486a-a654-2ed9b4d93a8f.png)
 [Link for the Project] (https://github.com/Esraa-Abdelrehem/Microprocessor_Project/tree/master)
 
@@ -35,7 +38,7 @@ This is a pure 8086 project to creater Super Mario Game consists of three levels
 
 [Back To The Top](#Microprocessor_Project)
 ---
-##Tools used
+## Tools used
 ![image](https://user-images.githubusercontent.com/93450859/148612646-292d548d-4196-42dd-83fb-b99af8e21d88.png)
 [Back To The Top](#Microprocessor_Project)
 
@@ -46,7 +49,7 @@ This is a pure 8086 project to creater Super Mario Game consists of three levels
 [Back To The Top](#Microprocessor_Project)
 
 
-##Illustation of how to make the project
+## Illustation of how to make the project
 ![image](https://user-images.githubusercontent.com/93450859/148613985-50282aa5-5ceb-4dfe-bd63-b62bcdaabf84.png)
 ![image](https://user-images.githubusercontent.com/93450859/148614009-2e0cb2df-fb4d-4dde-81ac-141eb798b7bb.png)
 ![image](https://user-images.githubusercontent.com/93450859/148614026-0d02a75a-2ebe-44f0-a507-7ddb111727aa.png)
@@ -57,7 +60,7 @@ This is a pure 8086 project to creater Super Mario Game consists of three levels
 ![image](https://user-images.githubusercontent.com/93450859/148617147-16d18433-4379-4860-8c34-0eccc403ab54.png)
 [Back To The Top](#Microprocessor_Project)
 
-##Video for the project
+## Video for the project
 [This is the video of the project in zip format](https://github.com/jamesqquick/read-me-template/files/7831523/My.Video3.zip)
 
 [Back To The Top](#Microprocessor_Project)
