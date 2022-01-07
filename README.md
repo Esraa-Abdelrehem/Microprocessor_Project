@@ -24,7 +24,7 @@ QR Code for project
 ![Picture2](https://user-images.githubusercontent.com/93450859/148611431-f87a8dc4-30e2-4ecb-b367-a0d5fd4e8834.png)
 
 - [Description](#description)
-- [Commits on Github](#Commits on Github)
+- [Github](#Github)
 - [Tools used](#Tools used)
 - [How To Use](#how-to-use)
 - [Illustation of how to make the project](#Illustation of how to make the project)
@@ -39,15 +39,21 @@ This is a pure 8086 project to creater Super Mario Game consists of three levels
 
 
 [Back To The Top](#Microprocessor_Project)
-##Commits on Github
+
+---
+##  Github
 ![image](https://user-images.githubusercontent.com/93450859/148613820-6869b240-b7a2-4004-9ecd-c95d8e36e06d.png)
 ![image](https://user-images.githubusercontent.com/93450859/148613431-e0930c0a-c581-4a11-921f-e81bf64c35d9.png)
 
+
 [Back To The Top](#Microprocessor_Project)
+
 ---
 ## Tools used
 ![image](https://user-images.githubusercontent.com/93450859/148612646-292d548d-4196-42dd-83fb-b99af8e21d88.png)
-[Back To The Top] (#Microprocessor_Project)
+
+[Back To The Top](#Microprocessor_Project)
+
 ---
 ## How To Use
 ![image](https://user-images.githubusercontent.com/93450859/148613281-44d5dd6c-6f3c-499f-81ec-ecda19f0672b.png)
@@ -65,7 +71,9 @@ This is a pure 8086 project to creater Super Mario Game consists of three levels
 ![image](https://user-images.githubusercontent.com/93450859/148614126-08657bb1-bb83-4d6f-95ef-4e12a20a0928.png)
 ![image](https://user-images.githubusercontent.com/93450859/148614104-3071486d-5786-4a2c-b754-9a2dfb0d7457.png)
 ![image](https://user-images.githubusercontent.com/93450859/148617147-16d18433-4379-4860-8c34-0eccc403ab54.png)
+
 [Back To The Top](#Microprocessor_Project)
+
 ---
 ## Video for the project
 [This is the video of the project in zip format](https://github.com/jamesqquick/read-me-template/files/7831523/My.Video3.zip)
@@ -79,4 +87,5 @@ Esraa Abdelrehem Ali
 esraaabdelrehemali02@gmail.com
 
 [Back To The Top](#Microprocessor_Project)
+
 ---
