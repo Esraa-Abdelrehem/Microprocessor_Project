@@ -7,10 +7,8 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/Esraa-Abdelrehem/Microprocessor_Project?style=social)
 
 ---
-
 ![Picture1](https://user-images.githubusercontent.com/93450859/148609624-fe391666-3cca-4ebe-a379-21332733b534.png)
 ---
-
 QR Code for project
 ![qr_code](https://user-images.githubusercontent.com/93450859/148613640-a8d8c88a-50e4-486a-a654-2ed9b4d93a8f.png)
 
