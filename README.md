@@ -11,8 +11,6 @@
 ---
 QR Code for project
 ![qr_code](https://user-images.githubusercontent.com/93450859/148613640-a8d8c88a-50e4-486a-a654-2ed9b4d93a8f.png)
-
-
 [Link for the Project](https://github.com/Esraa-Abdelrehem/Microprocessor_Project/tree/master)
 
 
