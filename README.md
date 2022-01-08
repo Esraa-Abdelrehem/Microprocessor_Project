@@ -27,17 +27,17 @@ QR Code for project
 this is the index for the project
 - [Description](#description)
 - [Github](#Github)
-- [Tools used](#Tools used)
+- [Tools used](#Tools-used)
 - [How To Use](#how-to-use)
-- [Illustation of how to make the project](#Illustation of how to make the project)
-- [Video for the project](#Video for the project)
+- [Illustation of how to make the project](#Illustation-of-how-to-make-the-project)
+- [Video for the project](#Video-for-the-project)
 - [Author Info](#author-info)
 
 ---
 
 ## Description
 
-This is a ==pure 8086 project== to creater Super Mario Game consists of three levels and challenged by some monsters
+This is a ===pure 8086 project=== to creater Super Mario Game consists of three levels and challenged by some monsters
 
 
 [Back To The Top](#Microprocessor_Project)
