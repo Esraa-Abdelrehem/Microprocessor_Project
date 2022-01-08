@@ -15,7 +15,7 @@ QR Code for project
 ![qr_code](https://user-images.githubusercontent.com/93450859/148613640-a8d8c88a-50e4-486a-a654-2ed9b4d93a8f.png)
 
 
-[Link for the Project] (https://github.com/Esraa-Abdelrehem/Microprocessor_Project/tree/master)
+[Link for the Project](https://github.com/Esraa-Abdelrehem/Microprocessor_Project/tree/master)
 
 
 ---
@@ -37,7 +37,7 @@ this is the index for the project
 
 ## Description
 
-This is a pure 8086 project to creater Super Mario Game consists of three levels and challenged by some monsters
+This is a ==pure 8086 project== to creater Super Mario Game consists of three levels and challenged by some monsters
 
 
 [Back To The Top](#Microprocessor_Project)
@@ -98,15 +98,17 @@ interupts have vital rule in these procedures
 
 ----
 
+# these are some instructions utillized
 
 ![image](https://user-images.githubusercontent.com/93450859/148614126-08657bb1-bb83-4d6f-95ef-4e12a20a0928.png)
 -----
-# these are some instructions utillized
-![image](https://user-images.githubusercontent.com/93450859/148614104-3071486d-5786-4a2c-b754-9a2dfb0d7457.png)
 
-----
 # How to draw characters?
 this simple block diagram will illustrate this
+
+![image](https://user-images.githubusercontent.com/93450859/148614104-3071486d-5786-4a2c-b754-9a2dfb0d7457.png)
+
+
 
 ![image](https://user-images.githubusercontent.com/93450859/148617147-16d18433-4379-4860-8c34-0eccc403ab54.png)
 
