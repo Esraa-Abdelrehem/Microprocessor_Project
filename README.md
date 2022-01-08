@@ -37,7 +37,7 @@ this is the index for the project
 
 ## Description
 
-This is a ===pure 8086 project=== to creater Super Mario Game consists of three levels and challenged by some monsters
+This is a pure 8086 project to creater Super Mario Game consists of three levels and challenged by some monsters
 
 
 [Back To The Top](#Microprocessor_Project)
